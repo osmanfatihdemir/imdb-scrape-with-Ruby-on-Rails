@@ -4,7 +4,7 @@ class CreateRecommends < ActiveRecord::Migration[6.1]
       t.string :movie_code
       t.string :title
       t.string :img
-      t.float :star_point
+      t.real	 :star_point
 
       t.timestamps
     end

@@ -6,7 +6,7 @@ class CreateMovies < ActiveRecord::Migration[6.1]
       t.string :title
       t.string :link
       t.string :img
-      t.float :star_point
+      t.real	 :star_point
       t.string :explain
       t.string :cast
 
