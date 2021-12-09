@@ -23,7 +23,7 @@
                     <%= form_for :Movies,  method: "delete", url: {action: "userDeleteMovie", params: {user_id: Current.user.id, movie_id:movie[:id]}} do |form| %>
                     
                         <%= form.button :submit do %>
-                            <i class='bi bi-x-square-fill'></i>
+                            <i class='bi bi-x-square-fill'>X</i>
                         <% end %>
 
                     </button>
