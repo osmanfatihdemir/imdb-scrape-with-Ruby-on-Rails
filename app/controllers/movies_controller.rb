@@ -7,14 +7,14 @@ class MoviesController<ApplicationController
     def userAddMovie
       @claims= MovieUserClaim.where(user_id:params[:user_id], movie_id:params[:movie_id]).first_or_create
       if @claims.save
-        redirect_to root_path, notice:"Successfully added movie !!"
+        redirect_to mymovies_path, notice:"Successfully added movie !!!"
       end
       
     end
 
     def userDeleteMovie
       @claimsDelete= MovieUserClaim.delete_by(user_id:params[:user_id], movie_id:params[:movie_id])
-        redirect_to root_path, notice:"Successfully deleted movie !!!"
+        redirect_to mymovies_path, notice:"Successfully deleted movie !!!"
 
     end
 
@@ -26,6 +26,7 @@ class MoviesController<ApplicationController
       end
     end
 
+  
 
     def scrape
       puts "test scrape"
@@ -40,8 +41,7 @@ class MoviesController<ApplicationController
         flash[:alert] = "Error: #{e}"
     end
 
-    def show
-    end
+    
 
 
 end

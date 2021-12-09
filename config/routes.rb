@@ -20,11 +20,16 @@ Rails.application.routes.draw do
   
   delete "movie_user_claim_delete",to:"movies#userDeleteMovie"
 
-  get "mymovies", to:"movies#getMyMovie"
-
-
   resources :movies do 
     match '/scrape', to: 'movies#scrape', via: :post, on: :collection
+  end
+
+  get "mymovies",to:"movies#getMyMovie"
+  
+  get "recommends", to:"recommends#index"
+
+  resources :recommends do 
+    match '/recommends/scrape', to: 'recommends#scrape', via: :post, on: :collection
   end
 
 
