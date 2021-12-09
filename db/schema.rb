@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_30_145200) do
+ActiveRecord::Schema.define(version: 2021_12_08_171253) do
+
+  create_table "movie_user_claims", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "movie_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+# Could not dump table "movies" because of following StandardError
+#   Unknown type 'REAL' for column 'star_point'
 
   create_table "users", force: :cascade do |t|
     t.string "email", null: false

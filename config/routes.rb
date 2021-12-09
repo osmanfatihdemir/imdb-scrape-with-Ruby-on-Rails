@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   get "about-us", to:"about#index", as: :about
 
   
@@ -13,6 +14,19 @@ Rails.application.routes.draw do
 
   delete "logout",to:"sessions#destroy"
 
-  root to:"main#index"
+  root to:"movies#index"
+
+  post "movie_user_claim_add",to:"movies#userAddMovie"
+  
+  delete "movie_user_claim_delete",to:"movies#userDeleteMovie"
+
+  get "mymovies", to:"movies#getMyMovie"
+
+
+  resources :movies do 
+    match '/scrape', to: 'movies#scrape', via: :post, on: :collection
+  end
+
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
